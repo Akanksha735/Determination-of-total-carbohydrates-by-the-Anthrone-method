@@ -21,4 +21,4 @@ The script will display:
 The equation of the standard curve
 The calculated concentration of the unknown sample: A graph showing the standard curve (scatter + best-fit line)
 This tool helps students and researchers:
-Understand the Anthrone Method. Simulate laboratory results. Practice plotting and interpreting standard curves, and Automate calculations for unknown concentrations. This project is open-source under the MIT License.
+Understand the Anthrone Method. Simulate laboratory results. Practice plotting and interpreting standard curves, and Automate calculations for unknown concentrations. This project is open-source under the MIT License. 
