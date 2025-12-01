@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+# Enter standard concentrations (µg/mL)
+concentrations = np.array(list(map(float,
+    input("Enter standard concentrations (comma-separated, e.g., 20,40,60,80,100): ")
+    .split(','))))
+# Enter corresponding absorbance values
+absorbances = np.array(list(map(float,
+    input("Enter absorbance values (comma-separated, e.g., 0.12,0.25,0.38,0.52,0.65): ")
+    .split(','))))
+# Unknown sample absorbance
+unknown_abs = float(input("Enter absorbance of unknown sample: "))
+coeffs = np.polyfit(concentrations, absorbances, 1)
+m, b = coeffs[0], coeffs[1]
+print("\n Standard Curve Equation ")
+print(f"Absorbance = {m:.4f} * Concentration + {b:.4f}")
+# Solve for concentration of unknown using x = (y - b) / m
+unknown_conc = (unknown_abs - b) / m
+print("\n Calculated Result ")
+print(f"Unknown sample concentration = {unknown_conc:.2f} µg/mL\n")
+plt.scatter(concentrations, absorbances) 
+x_line = np.linspace(0, max(concentrations)*1.1, 100)
+y_line = m * x_line + b
+plt.plot(x_line, y_line)
+plt.xlabel("Concentration (µg/mL)")
+plt.ylabel("Absorbance at 620 nm")
+plt.title("Standard Curve - Anthrone Method")
+plt.show()
